@@ -29,12 +29,6 @@ EOF
 
 
 ###################################################################################################
-# install spectacle
-
-###################################################################################################
-
-
-###################################################################################################
 # browsers
 brew install --cask google-chrome
 brew install --cask firefox
@@ -56,7 +50,7 @@ brew install --cask iterm2
 
 brew install --cask pycharm
 brew install --cask datagrip
-brew install --cask visual-studio
+brew install --cask visual-studio. # requires password to be entered
 brew install docker
 brew install --cask gitkraken
 brew install awscli
