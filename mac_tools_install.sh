@@ -51,7 +51,13 @@ brew install --cask iterm2
 brew install --cask pycharm
 brew install --cask datagrip
 brew install --cask visual-studio. # requires password to be entered
-brew install docker
+
+# only install one or the other
+# -- docker service
+# brew install docker
+# -- docker desktop
+brew install --cask docker
+
 brew install --cask gitkraken
 brew install awscli
 brew tap aws/tap
