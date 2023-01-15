@@ -3,18 +3,22 @@
 
 ###################################################################################################
 # install homebrew (w/o a prompt or needed to hit return)
-URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
-echo -n '- Installing homebrew ... '
-echo | /usr/bin/ruby -e "$(curl -fsSL $URL_BREW)" > /dev/null
-if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
+#URL_BREW='https://raw.githubusercontent.com/Homebrew/install/master/install'
+#echo -n '- Installing homebrew ... '
+#echo | /usr/bin/ruby -e "$(curl -fsSL $URL_BREW)" > /dev/null
+#if [ $? -eq 0 ]; then echo 'OK'; else echo 'NG'; fi
 
 # manual way
 ## /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # add brew to the path 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+#echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+#eval "$(/opt/homebrew/bin/brew shellenv)"
 
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/eric.wilson/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ###################################################################################################
 # install visual studio cod
@@ -22,10 +26,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install --cask visual-studio-code
 
 # set up code in the shelll
-cat << EOF >> ~/.zprofile
-# Add Visual Studio Code (code)
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-EOF
+# cat << EOF >> ~/.zprofile
+# # Add Visual Studio Code (code)
+# export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# EOF
 
 
 ###################################################################################################
@@ -50,14 +54,12 @@ brew install --cask iterm2
 
 brew install --cask pycharm
 brew install --cask datagrip
-brew install --cask visual-studio. # requires password to be entered
 
-# only install one or the other
-# -- docker service
-# brew install docker
-# -- docker desktop
+brew tap homebrew/cask-versions
+brew install --cask visual-studio # requires password to be entered
+
+
 brew install --cask docker
-
 brew install --cask gitkraken
 brew install awscli
 brew tap aws/tap
@@ -67,10 +69,13 @@ brew install aws-cdk
 ###################################################################################################
 
 
+## make sure some of our command line tools like git will work
+sudo xcode-select --reset
+sudo xcodebuild -license accep
 
 ###################################################################################################
 # manual installs (if you need betas)
-open -a 'google chrome' https://visualstudio.microsoft.com/vs/mac/preview/
+# open -a 'google chrome' https://visualstudio.microsoft.com/vs/mac/preview/
 
 ###################################################################################################
 
